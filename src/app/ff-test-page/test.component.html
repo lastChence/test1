@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <input class="form-control custom" [(ngModel)]="query" type="text" placeholder="Enter your query">
+    <button class="btn btn-primary" (click)="getJoke(query)">
+      <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+      Submit
+    </button>
+  </div>
+  <div *ngIf="isLoading" class="jumbotron text-center"> 
+    <app-loader [isLoading]="isLoading"></app-loader>
+  </div>
+  <div *ngFor="let joke of jokes" class="jumbotron text-center">
+    <q [hidden]="isLoading">{{joke.value}}</q>
+  </div>
+</div>
+  
